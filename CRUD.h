@@ -73,7 +73,7 @@ Coffee *searchItem(List *ls, string itemID) {
         temp = temp->next;
     }
     
-    cout << "Founded at " << count << endl;
+    // cout << "Founded at " << count << endl;
     
     return temp;
 }
@@ -96,11 +96,16 @@ void deleteItem(List *ls, string itemID)
  
     /* Change prev only if node to be deleted is NOT
        the first node */
-    if (del->prev != NULL)
+    if (del->prev != NULL) {
         del->prev->next = del->next;
- 
+        if(del->next == NULL) {
+            ls->tail = del->prev;
+        }
+    }
+
     /* Finally, free the memory occupied by del*/
-    free(del);
+    delete del;
+    ls->n = ls->n - 1;
 }
 
 void updateItem(List *ls, string itemID) {
