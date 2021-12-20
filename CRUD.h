@@ -163,6 +163,7 @@ List *readFile() {
     List *L2 = createEmptyList();
 
     while(file >> id >> name >> price) {
+        cout << id << setw(20) << name << setw(20) << price << endl;
         insertBegin(L2, id, name, price);
     }
 
