@@ -24,28 +24,14 @@ int main() {
         if(choice == 1) {
             coffeeList();
         }
-
-
+        else if(choice == 3) {
+            break;
+        }
+        else {
+            cout << "Wrong Input Try Again!" << endl;
+        }
+        
     } while(choice != 3);
-
-
-    displayList(L1);
-
-    // updateItem(L1, "2");
-
-    deleteItem(L1, "5");
-
-    displayList(L1);
-
-    
-    // displayReverseList(L1);
-
-    // writeFile(L1);
-
-    // List *L2 = readFile(); // Text File Shouldn't have a space
-
-    // displayList(L2);
-    
 
     return 0;
 }

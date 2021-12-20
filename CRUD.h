@@ -125,7 +125,7 @@ void displayList(List *ls) {
     Coffee *temp = new Coffee();
     temp = ls->head;
     while(temp != NULL) {
-        cout << temp->id << "\t" << temp->name << "\t" << temp->price << endl;
+        cout << temp->id << setw(15) << temp->name << setw(15) << temp->price << endl;
         temp = temp->next;
     }
     cout << endl;
@@ -163,7 +163,6 @@ List *readFile() {
     List *L2 = createEmptyList();
 
     while(file >> id >> name >> price) {
-        cout << id << setw(20) << name << setw(20) << price << endl;
         insertBegin(L2, id, name, price);
     }
 

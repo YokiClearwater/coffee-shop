@@ -1,4 +1,5 @@
 void coffeeList() {
     List *ls = readFile();
-    // displayList(ls);
+    cout << "ID" << setw(15) << "Name" << setw(15) << "Price" << endl;
+    displayList(ls);
 }
