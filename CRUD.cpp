@@ -1,8 +1,8 @@
 #include <iostream>
-#include <fstream>
-#include <iomanip>
-#include "CRUD.h"
-#include "Menu.h"
+#include <windows.h>
+#include "Header\CRUD.h"
+#include "Header\User.h"
+#include "Header\Menu.h"
 using namespace std;
 
 int main() {
@@ -10,28 +10,35 @@ int main() {
     int choice;
 
     mainMenu:
-        cout << "1. Coffee List" << endl;
+        cout << setw(25) << "Welcome To The Cafe" << endl;
+        cout << "-------------------------------" << endl;
+        cout << "1. Buy Coffee" << endl;
         cout << "2. Staff Mangament" << endl;
         cout << "3. Exit" << endl;
         cout << "Enter Choice: ";
         cin >> choice;
 
         if(choice == 1) {
+            system("CLS");
+            Sleep(200);
             coffeeList();
+            cout << endl;
+            orderCoffee();
             goto mainMenu;
         }
         else if(choice == 2) {
+            system("CLS");
+            Sleep(200);
             staffPanel();
             goto mainMenu;
         }
         else if(choice == 3) {
-            exit(0);
+            return 0;
         }
         else {
             cout << "Wrong Input Try Again!" << endl;
             goto mainMenu;
         }
         
-
     return 0;
 }

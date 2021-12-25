@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+#include <fstream>
+#include <iomanip>
 using namespace std;
 
 struct Coffee {
@@ -71,10 +71,7 @@ Coffee *searchItem(List *ls, string itemID) {
             break;
         }
         temp = temp->next;
-    }
-    
-    // cout << "Founded at " << count << endl;
-    
+    }  
     return temp;
 }
 

@@ -1,0 +1,7 @@
+1	Kosal	2	25.98
+2	Sam	2	247
+1	Kosal	2	25.98
+3	Olay	1	123.5
+1	Kosal	2	25.98
+2	Sam	2	247
+1	Kosal	2	25.98
