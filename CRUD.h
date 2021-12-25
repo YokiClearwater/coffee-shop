@@ -81,21 +81,16 @@ Coffee *searchItem(List *ls, string itemID) {
 void deleteItem(List *ls, string itemID)
 {
     Coffee *del = searchItem(ls, itemID);
-    /* base case */
+
     if (ls->head == NULL || del == NULL)
         return;
  
-    /* If node to be deleted is head node */
     if (ls->head == del)
         ls->head = del->next;
- 
-    /* Change next only if node to be deleted is NOT
-       the last node */
+    
     if (del->next != NULL)
         del->next->prev = del->prev;
  
-    /* Change prev only if node to be deleted is NOT
-       the first node */
     if (del->prev != NULL) {
         del->prev->next = del->next;
         if(del->next == NULL) {

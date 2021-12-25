@@ -9,12 +9,7 @@ int main() {
     List *L1 = createEmptyList();
     int choice;
 
-    insertBegin(L1, "1", "Latte", "123.5");
-    insertBegin(L1, "2", "Americano", "123.5");
-    insertBegin(L1, "3", "Ice-Cream", "123.5");
-    insertEnd(L1, "5", "Bread", "15.5");
-
-    do {
+    mainMenu:
         cout << "1. Coffee List" << endl;
         cout << "2. Staff Mangament" << endl;
         cout << "3. Exit" << endl;
@@ -23,15 +18,20 @@ int main() {
 
         if(choice == 1) {
             coffeeList();
+            goto mainMenu;
+        }
+        else if(choice == 2) {
+            staffPanel();
+            goto mainMenu;
         }
         else if(choice == 3) {
-            break;
+            exit(0);
         }
         else {
             cout << "Wrong Input Try Again!" << endl;
+            goto mainMenu;
         }
         
-    } while(choice != 3);
 
     return 0;
 }
