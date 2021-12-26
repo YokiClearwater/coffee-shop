@@ -1,8 +1,7 @@
 #include <iostream>
-#include <windows.h>
-#include "Header\CRUD.h"
-#include "Header\User.h"
-#include "Header\Menu.h"
+#include "Header/CRUD.h"
+#include "Header/User.h"
+#include "Header/Menu.h"
 using namespace std;
 
 int main() {
@@ -19,16 +18,12 @@ int main() {
         cin >> choice;
 
         if(choice == 1) {
-            system("CLS");
-            Sleep(200);
             coffeeList();
             cout << endl;
             orderCoffee();
             goto mainMenu;
         }
         else if(choice == 2) {
-            system("CLS");
-            Sleep(200);
             staffPanel();
             goto mainMenu;
         }

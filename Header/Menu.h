@@ -30,7 +30,6 @@ void staffPanel() {
         cin >> choice;
 
         if(choice == 1) {
-            system("CLS");
             cout << "Enter Item ID: ";
             cin >> id;
             cout << "Enter Item Name: ";
@@ -39,51 +38,36 @@ void staffPanel() {
             cin >> price;
             insertEnd(L1, id, name, price);
             writeFile(L1);
-            Sleep(200);
-            system("CLS");
             goto adminPanel;
         }
         else if(choice == 2) {
-            system("CLS");
             coffeeList();
-            Sleep(7000);
-            system("CLS");
             goto adminPanel;
         }
         else if(choice == 3) {
-            system("CLS");
             cout << "Enter ID to Search: ";
             cin >> id;
             updateItem(L1, id);
             writeFile(L1);
-            system("CLS");
             goto adminPanel;
         }
         else if(choice == 4) {
-            system("CLS");
             cout << "Enter ID: ";
             cin >> id;
             deleteItem(L1, id);
             writeFile(L1);
-            system("CLS");
             goto adminPanel;
         }
         else if(choice == 5) {
-            system("CLS");
             bestBuy();
-            Sleep(5000);
-            system("CLS");
             goto adminPanel;
         }
         else if(choice == 6) {
-            system("CLS");
             viewUser();
-            Sleep(7000);
-            system("CLS");
             goto adminPanel;
         }
         else if(choice == 7) {
-            system("CLS");
+            
             return;
         }
         else {
