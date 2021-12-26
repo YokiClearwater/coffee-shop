@@ -10,7 +10,7 @@ int main() {
     int choice;
 
     mainMenu:
-        cout << "`\n-------------------------------" << endl;
+        cout << "\n-------------------------------" << endl;
         cout << setw(25) << "Welcome To The Cafe" << endl;
         cout << "-------------------------------" << endl;
         cout << "1. Buy Coffee" << endl;
@@ -40,6 +40,8 @@ int main() {
         else {
             clearScreen();
             cout << "Wrong Input Try Again!" << endl;
+            sleepTime(1000);
+            clearScreen();
             goto mainMenu;
         }
         

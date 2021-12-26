@@ -3,7 +3,6 @@
 #include <chrono>
 #include <thread>
 
-
 void clearScreen()
 {
     #ifdef WINDOWS
