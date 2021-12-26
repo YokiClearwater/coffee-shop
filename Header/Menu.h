@@ -13,7 +13,7 @@ void viewUser();
 void clear();
 void totalEarning();
 void deleteCoffeeMenu();
-
+void createCoffeeItem(List *L1, string id, string name, string price);
 
 void staffPanel()
 {
@@ -41,17 +41,7 @@ void staffPanel()
         if (choice == 1)
         {
             clearScreen();
-            coffeeList();
-            cout << "Adding New Cafe to Menu" << endl;
-            cout << "---------------------------------" << endl;
-            cout << "Enter Item ID: ";
-            cin >> id;
-            cout << "Enter Item Name: ";
-            cin >> name;
-            cout << "Enter Item Price: ";
-            cin >> price;
-            insertEnd(L1, id, name, price);
-            writeFile(L1);
+            createCoffeeItem(L1, id, name, price);
             clearScreen();
             goto adminPanel;
         }
@@ -189,4 +179,26 @@ void deleteCoffeeMenu() {
     List *L1 = readFile();
     deleteAllItem(L1);
     writeFile(L1);
+}
+
+void createCoffeeItem(List *L1, string id, string name, string price) {
+            coffeeList();
+            cout << "Adding New Cafe to Menu" << endl;
+            cout << "---------------------------------" << endl;
+            cout << "Enter Item ID: ";
+            cin >> id;
+
+            Coffee *item = searchItem(L1, id);
+            while(item != NULL) {
+                cout << "Duplicate ID!! Enter Again: ";
+                cin >> id;
+                item = searchItem(L1, id);
+            }
+
+            cout << "Enter Item Name: ";
+            cin >> name;
+            cout << "Enter Item Price: ";
+            cin >> price;
+            insertEnd(L1, id, name, price);
+            writeFile(L1);
 }
