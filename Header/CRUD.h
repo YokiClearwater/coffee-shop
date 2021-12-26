@@ -162,3 +162,15 @@ List *readFile() {
     
     return L2; 
 }
+
+void deleteAllItem(List *ls) {
+    Coffee *temp = new Coffee();
+    while(ls->head != NULL) {
+        temp = ls->head;
+        ls->head = ls->head->next;
+        delete temp;
+    }
+
+    ls->tail = NULL;
+    ls->n = 0;
+}

@@ -1,5 +1,4 @@
-8	Green-Tea	2.5
-4	Orange-Juice	3.5
-1	Latte	2.5
-2	Americano	2.5
-3	Ice-Cream	2
+4	Espresso	4.95
+3	Latte	5.90
+1	Americano	2.5
+5	Iced-Coffee	4.95
