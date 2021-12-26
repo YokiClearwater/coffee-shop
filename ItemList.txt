@@ -1,5 +1,5 @@
-3	Ice-Cream	123.5
-2	Americano	123.5
-1	Latte	12.99
-4	Bread	15.5
-8	Green-Tea	15.66
+8	Green-Tea	2.5
+4	Orange-Juice	3.5
+1	Latte	2.5
+2	Americano	2.5
+3	Ice-Cream	2
