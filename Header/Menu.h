@@ -95,7 +95,7 @@ void orderCoffee()
     int choice;
 
 coffeeShop:
-    cout << "\nDo you want to buy some coffee?" << endl;
+    cout << "Do you want to buy some coffee?" << endl;
     cout << "---------------------------------" << endl;
     cout << "1. Buy Some Coffee" << endl;
     cout << "2. Back to Main Menu" << endl;

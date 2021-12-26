@@ -99,7 +99,7 @@ User *bestCustomer(UserList *ul) {
 
 void writeUserFile(UserList *ul) {
     ofstream file;
-    file.open("CustomersList.txt", ios::app);
+    file.open("CustomersList.txt");
 
     User *temp = new User();
     temp = ul->head;
