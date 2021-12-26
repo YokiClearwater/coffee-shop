@@ -56,8 +56,6 @@ void staffPanel()
         {
             clearScreen();
             displayList(L1);
-            cout << "Enter ID to Search: ";
-            cin >> id;
             updateItem(L1, id);
             writeFile(L1);
             clearScreen();

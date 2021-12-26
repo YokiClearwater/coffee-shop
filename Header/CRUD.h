@@ -101,7 +101,15 @@ void deleteItem(List *ls, string itemID)
 }
 
 void updateItem(List *ls, string itemID) {
+    cout << "Enter ID to Search: ";
+    cin >> itemID;
+
     Coffee *temp = searchItem(ls, itemID);
+    while(temp != NULL) {
+        cout << "Item Not Found!! Enter ID Again: ";
+        cin >> itemID;
+        temp = searchItem(ls, itemID);
+    }
 
     string newName, newPrice;
 
