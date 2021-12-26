@@ -1,3 +1,5 @@
+#include <set>
+
 struct User {
     string itemID, name;
     int quantity;
@@ -56,7 +58,6 @@ void buyCoffee(UserList *U1) {
     while(item == NULL) {
         cout << "ID Not Found!! Enter Again: ";
         cin >> coffeeID;
-        item = searchItem(ls, coffeeID);
     }
 
     cout << "Enter Quantity: ";
@@ -80,15 +81,45 @@ void displayUser(UserList *ul) {
     cout << endl;
 }
 
+UserList *sortUser(UserList *ul) {
+    UserList *U2 = createList();
+    User *ptr = ul->head;
+    set<string> str;
+
+    while(ptr != NULL) {
+        str.insert(ptr->name);
+        ptr = ptr->next;
+    }
+
+    set<string>::iterator it;
+
+    
+    for(it = str.begin(); it != str.end(); it++) {
+        User *temp, *ptr;
+        temp = ul->head;
+        string coffeeID;
+        int coffeeCount = 0;
+        float price = 0;
+        while(temp != NULL) {
+            if(temp->name == *it) {
+                coffeeID = coffeeID + " " + temp->itemID ;
+                coffeeCount += temp->quantity;
+                price += temp->payment;
+            }
+            temp = temp->next;
+        }
+        addUser(U2, *it, coffeeID, coffeeCount, price);
+    }
+
+    return U2;
+}
+
+
 User *bestCustomer(UserList *ul) {
     User *max, *temp;
     temp = max = ul->head;
 
     while(temp != NULL) {
-        if(temp->name == max->name) {
-            max->payment += temp->payment;
-        }
-
         if(temp->payment > max->payment) {
             max = temp;
         }

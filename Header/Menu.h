@@ -154,7 +154,9 @@ void orderCoffee()
 void bestBuy()
 {
     UserList *ul = readUserFile();
-    User *bestUser = bestCustomer(ul);
+    UserList *U2 = sortUser(ul); 
+
+    User *bestUser = bestCustomer(U2);
     cout << "\nOur Best Customer is " << bestUser->name << " spending $ " << bestUser->payment << endl;
 }
 
