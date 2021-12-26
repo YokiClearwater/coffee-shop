@@ -56,7 +56,7 @@ void buyCoffee(UserList *U1) {
     while(item == NULL) {
         cout << "ID Not Found!! Enter Again: ";
         cin >> coffeeID;
-        searchItem(ls, coffeeID);
+        item = searchItem(ls, coffeeID);
     }
 
     cout << "Enter Quantity: ";
