@@ -63,6 +63,10 @@ void buyCoffee(UserList *U1) {
 
     cout << "Enter Quantity: ";
     cin >> quantity;  
+
+    if(quantity == 0) {
+        return;
+    }
     
     stringstream str(item->price);
     float price = 0;
