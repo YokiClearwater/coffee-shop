@@ -2,7 +2,9 @@
 
 #ifdef _WIN32
 #include <conio.h>
-#else
+#endif
+
+#ifdef __unix__
 #include <unistd.h>
 #endif
 
