@@ -101,28 +101,36 @@ LoginList *readLoginFile() {
     return L2; 
 }
 
-// string get_password()
-// { 
-//     string password;
-//     int ch;
+string getPassword()
+{ 
+    string password;
+    int ch;
 
-//     while ( ( ch = getch() ) != '\r' ) {
-//         if ( ch == '\b' ) {
-//             if ( password.size() > 0 ) {
-//                 password.erase( password.size() - 1, 1 );
-//                 cout<<"\b \b";
-//             }
-//         }
-//         else {
-//             password.push_back( ch );
-//             cout.put ( '*' );
-//         }
-//     }
+    while ( ( ch = getch() ) != '\r' ) {
+        if ( ch == '\b' ) {
+            if ( password.size() > 0 ) {
+                password.erase( password.size() - 1, 1 );
+                cout<<"\b \b";
+            }
+        }
+        else {
+            password.push_back( ch );
+            cout.put ( '*' );
+        }
+    }
 
-//     cout.put ( '\n' );
+    cout.put ( '\n' );
 
-//     return password;
-// }
+    return password;
+}
+
+void inputPass(string password) {
+    #ifdef _WIN32
+    password = getPassword();
+    #else
+    password = getpass();
+    #endif
+}
 
 void signUp() {
     LoginList *LL = readLoginFile();
@@ -140,21 +148,17 @@ void signUp() {
     }
 
     cout << "Enter Password: ";
-    #ifdef _WIN32
-    cin >> password;
-    #else
-    password = getpass("Enter Password: ");
-    #endif
+    inputPass(password);
 
     cout << "Confirm Password: ";
-    cin >> confirmPass;
+    inputPass(confirmPass);
 
     while(password != confirmPass) {
         cout << "Password Doesn't Match!! Enter Again!" << endl;
         cout << "Enter Password: ";
-        cin >> password;
+        inputPass(password);
         cout << "Confirm Password: ";
-        cin >> confirmPass;
+        inputPass(confirmPass);
     }
 
     if(password.size() == 0 || confirmPass.size() == 0) {
