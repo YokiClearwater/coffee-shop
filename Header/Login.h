@@ -126,7 +126,7 @@ string getPassword()
 }
 #endif
 
-void inputPass(string *password, string prompt) {
+void inputPass(string *password, const string prompt) {
     #ifdef _WIN32
     cout << prompt << endl;
     *password = getPassword();
