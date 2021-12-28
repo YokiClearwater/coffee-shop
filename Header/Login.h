@@ -111,24 +111,24 @@ string getPassword()
         if ( ch == '\b' ) {
             if ( password.size() > 0 ) {
                 password.erase( password.size() - 1, 1 );
-                cout<<"\b \b";
+                cout<< "\b \b";
             }
         }
         else {
             password.push_back( ch );
-            cout.put ( '*' );
+            cout << "*";
         }
     }
 
-    cout.put ( '\n' );
+    cout << "\n";
 
     return password;
 }
 #endif
 
-void inputPass(string *password, const string prompt) {
+void inputPass(string *password, const char *prompt) {
     #ifdef _WIN32
-    cout << prompt << endl;
+    cout << prompt;
     *password = getPassword();
     #endif
     
@@ -178,8 +178,7 @@ UserLogin *logIn() {
 
     cout << "Enter Username: ";
     cin >> userName;
-    cout << "Enter Password: ";
-    cin >> password;
+    inputPass(&password, "Enter Password: ");
 
     UserLogin *U1 = searchUserLogin(LL, userName);
     while(true) {
@@ -190,8 +189,7 @@ UserLogin *logIn() {
             cout << "Incorrect Username or Password!! Enter Again!!" << endl;
             cout << "Enter Username: ";
             cin >> userName;
-            cout << "Enter Password: ";
-            cin >> password;
+            inputPass(&password, "Enter Password: ");
             U1 = searchUserLogin(LL, userName);
         }
     }
