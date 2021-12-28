@@ -150,7 +150,9 @@ void signUp() {
     cout << "Confirm Password: ";
     #ifdef _WIN32
     confirmPass = get_password();
-    #else
+    #endif
+    
+    #ifdef __unix__
     confirmPass = "";
     cin >> confirmPass;
     #endif
@@ -160,14 +162,18 @@ void signUp() {
         cout << "Enter Password: ";
         #ifdef _WIN32
         password = get_password();
-        #else
+            #endif
+    
+    #ifdef __unix__
         password = "";
         cin >> password;
         #endif
         cout << "Confirm Password: ";
         #ifdef _WIN32
     confirmPass = get_password();
-    #else
+        #endif
+    
+    #ifdef __unix__
     confirmPass = "";
     cin >> confirmPass;
     #endif
