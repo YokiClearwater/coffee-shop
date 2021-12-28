@@ -127,7 +127,9 @@ string getPassword()
 void inputPass(string password) {
     #ifdef _WIN32
     password = getPassword();
-    #else
+    #endif
+    
+    #ifdef __unix__
     password = getpass("");
     #endif
 }
