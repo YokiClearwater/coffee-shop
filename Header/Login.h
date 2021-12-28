@@ -101,25 +101,25 @@ LoginList *readLoginFile() {
     return L2; 
 }
 
-string EnterPassword()
-{
+string get_password()
+{ 
     string password;
     int ch;
 
-    while (( ch = getch() ) != '\r' ) {
-        if (ch == '\b') {
-            if (password.size() > 0) {
+    while ( (ch = getch()) != '\r' ) {
+        if ( ch == '\b' ) {
+            if ( password.size() > 0 ) {
                 password.erase( password.size() - 1, 1 );
                 cout<<"\b \b";
             }
         }
         else {
             password.push_back( ch );
-            cout << "*";
+            cout.put ( '*' );
         }
     }
 
-    cout << "\n";
+    cout.put ( '\n' );
 
     return password;
 }
@@ -140,17 +140,37 @@ void signUp() {
     }
 
     cout << "Enter Password: ";
-    password = EnterPassword();
+    #ifdef _WIN32
+    password = get_password();
+    #else
+    password = "";
+    cin >> password;
+    #endif
 
     cout << "Confirm Password: ";
-    confirmPass = EnterPassword();
+    #ifdef _WIN32
+    confirmPass = get_password();
+    #else
+    confirmPass = "";
+    cin >> confirmPass;
+    #endif
 
     while(password != confirmPass) {
         cout << "Password Doesn't Match!! Enter Again!" << endl;
         cout << "Enter Password: ";
-        password = EnterPassword();
+        #ifdef _WIN32
+        password = get_password();
+        #else
+        password = "";
+        cin >> password;
+        #endif
         cout << "Confirm Password: ";
-        confirmPass = EnterPassword();
+        #ifdef _WIN32
+    confirmPass = get_password();
+    #else
+    confirmPass = "";
+    cin >> confirmPass;
+    #endif
     }
 
     if(password.size() == 0 || confirmPass.size() == 0) {
@@ -169,7 +189,7 @@ UserLogin *logIn() {
     cout << "Enter Username: ";
     cin >> userName;
     cout << "Enter Password: ";
-    password = EnterPassword();
+    cin >> password;
 
     UserLogin *U1 = searchUserLogin(LL, userName);
     while(true) {
@@ -181,7 +201,7 @@ UserLogin *logIn() {
             cout << "Enter Username: ";
             cin >> userName;
             cout << "Enter Password: ";
-            password = EnterPassword();
+            cin >> password;
             U1 = searchUserLogin(LL, userName);
         }
     }

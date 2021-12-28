@@ -15,3 +15,13 @@ void clearScreen()
 void sleepTime(int ms) {
     std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
+
+#ifdef WINDOWS
+#include <windows.h>
+#endif
+
+#ifdef LINUX
+#include <unistd.h>
+#include <termios.h>
+#endif
+

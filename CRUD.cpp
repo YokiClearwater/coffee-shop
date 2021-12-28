@@ -1,10 +1,16 @@
 #include <iostream>
+
+#ifdef _WIN32
 #include <conio.h>
+#endif
+
+
 #include "Header/Console.h"
 #include "Header/CRUD.h"
 #include "Header/Login.h"
 #include "Header/User.h"
 #include "Header/Menu.h"
+
 
 using namespace std;
 
