@@ -159,7 +159,6 @@ void signUp() {
     while(password != confirmPass) {
         cout << "Password Doesn't Match!! Enter Again!" << endl;
         inputPass(&password, "Enter Password: ");
-        cout << "Confirm Password: ";
         inputPass(&confirmPass, "Confirm Password: ");
     }
 
@@ -189,6 +188,7 @@ UserLogin *logIn() {
             cout << "Incorrect Username or Password!! Enter Again!!" << endl;
             cout << "Enter Username: ";
             cin >> userName;
+            cin.ignore();
             inputPass(&password, "Enter Password: ");
             U1 = searchUserLogin(LL, userName);
         }
