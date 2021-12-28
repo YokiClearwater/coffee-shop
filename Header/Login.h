@@ -142,7 +142,9 @@ void signUp() {
     cout << "Enter Password: ";
     #ifdef _WIN32
     password = get_password();
-    #else
+    #endif
+    
+    #ifdef __unix__
     password = "";
     cin >> password;
     #endif
