@@ -140,7 +140,11 @@ void signUp() {
     }
 
     cout << "Enter Password: ";
+    #ifdef _WIN32
     cin >> password;
+    #else
+    password = getpass("Enter Password: ");
+    #endif
 
     cout << "Confirm Password: ";
     cin >> confirmPass;

@@ -1,4 +1,11 @@
 #include <iostream>
+
+#ifdef _WIN32
+#include <conio.h>
+#else
+#include <unistd.h>
+#endif
+
 #include "Header/Console.h"
 #include "Header/CRUD.h"
 #include "Header/Login.h"
