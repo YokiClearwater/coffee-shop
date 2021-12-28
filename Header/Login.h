@@ -101,28 +101,28 @@ LoginList *readLoginFile() {
     return L2; 
 }
 
-string get_password()
-{ 
-    string password;
-    int ch;
+// string get_password()
+// { 
+//     string password;
+//     int ch;
 
-    while ( (ch = getch()) != '\r' ) {
-        if ( ch == '\b' ) {
-            if ( password.size() > 0 ) {
-                password.erase( password.size() - 1, 1 );
-                cout<<"\b \b";
-            }
-        }
-        else {
-            password.push_back( ch );
-            cout.put ( '*' );
-        }
-    }
+//     while ( ( ch = getch() ) != '\r' ) {
+//         if ( ch == '\b' ) {
+//             if ( password.size() > 0 ) {
+//                 password.erase( password.size() - 1, 1 );
+//                 cout<<"\b \b";
+//             }
+//         }
+//         else {
+//             password.push_back( ch );
+//             cout.put ( '*' );
+//         }
+//     }
 
-    cout.put ( '\n' );
+//     cout.put ( '\n' );
 
-    return password;
-}
+//     return password;
+// }
 
 void signUp() {
     LoginList *LL = readLoginFile();
@@ -140,45 +140,17 @@ void signUp() {
     }
 
     cout << "Enter Password: ";
-    #ifdef _WIN32
-    password = get_password();
-    #endif
-    
-    #ifdef __unix__
-    password = "";
     cin >> password;
-    #endif
 
     cout << "Confirm Password: ";
-    #ifdef _WIN32
-    confirmPass = get_password();
-    #endif
-    
-    #ifdef __unix__
-    confirmPass = "";
     cin >> confirmPass;
-    #endif
 
     while(password != confirmPass) {
         cout << "Password Doesn't Match!! Enter Again!" << endl;
         cout << "Enter Password: ";
-        #ifdef _WIN32
-        password = get_password();
-            #endif
-    
-    #ifdef __unix__
-        password = "";
         cin >> password;
-        #endif
         cout << "Confirm Password: ";
-        #ifdef _WIN32
-    confirmPass = get_password();
-        #endif
-    
-    #ifdef __unix__
-    confirmPass = "";
-    cin >> confirmPass;
-    #endif
+        cin >> confirmPass;
     }
 
     if(password.size() == 0 || confirmPass.size() == 0) {
