@@ -101,6 +101,7 @@ LoginList *readLoginFile() {
     return L2; 
 }
 
+#ifdef _WIN32
 string getPassword()
 { 
     string password;
@@ -123,14 +124,16 @@ string getPassword()
 
     return password;
 }
+#endif
 
-void inputPass(string password) {
+void inputPass(string *password, string prompt) {
     #ifdef _WIN32
-    password = getPassword();
+    cout << prompt << endl;
+    *password = getPassword();
     #endif
     
     #ifdef __unix__
-    password = getpass("");
+    *password = getpass(prompt);
     #endif
 }
 
@@ -149,18 +152,15 @@ void signUp() {
         U1 = searchUserLogin(LL, userName);
     }
 
-    cout << "Enter Password: ";
-    inputPass(password);
+    inputPass(&password, "Enter Password: ");
 
-    cout << "Confirm Password: ";
-    inputPass(confirmPass);
+    inputPass(&confirmPass, "Confirm Password: ");
 
     while(password != confirmPass) {
         cout << "Password Doesn't Match!! Enter Again!" << endl;
-        cout << "Enter Password: ";
-        inputPass(password);
+        inputPass(&password, "Enter Password: ");
         cout << "Confirm Password: ";
-        inputPass(confirmPass);
+        inputPass(&confirmPass, "Confirm Password: ");
     }
 
     if(password.size() == 0 || confirmPass.size() == 0) {
