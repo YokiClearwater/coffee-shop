@@ -42,15 +42,15 @@ void addUser(UserList *ul, string userName, string coffeeID, int coffeeCount, fl
     ul->n += 1;
 }
 
-void buyCoffee(UserList *U1) {
+void buyCoffee(UserList *U1, UserLogin *user) {
     List *ls = readFile();
 
     string coffeeID, userName;
     int quantity;
     float payment;
 
-    cout << "Enter Your Name: ";
-    cin >> userName;
+    userName = user->userName;
+
     cout << "Enter Coffee ID: ";
     cin >> coffeeID;
 
@@ -119,7 +119,6 @@ UserList *sortUser(UserList *ul) {
     return U2;
 }
 
-
 User *bestCustomer(UserList *ul) {
     User *max, *temp;
     temp = max = ul->head;
@@ -166,3 +165,4 @@ UserList *readUserFile() {
     file.close();
     return U2; 
 }
+

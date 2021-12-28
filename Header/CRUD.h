@@ -105,13 +105,16 @@ void updateItem(List *ls, string itemID) {
     cin >> itemID;
 
     Coffee *temp = searchItem(ls, itemID);
-    while(temp != NULL) {
+    while(temp == NULL) {
         cout << "Item Not Found!! Enter ID Again: ";
         cin >> itemID;
         temp = searchItem(ls, itemID);
     }
 
     string newName, newPrice;
+    cout << "\n----------------" << endl;
+    cout << "Updating Input: " << endl;
+    cout << "----------------" << endl;
 
     cout << "Enter Item Name: ";
     cin >> newName;

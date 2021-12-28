@@ -1,5 +1,6 @@
-5	Iced-Coffee	4.95
-1	Americano	2.5
-3	Latte	5.90
+6	Cappuccino	1.5
 4	Espresso	4.95
-6	Cappuccino	1.49
+3	Latte	5.90
+1	Americano	3.99
+5	Iced-Coffee	4.95
+7	Green-Tea	2.5

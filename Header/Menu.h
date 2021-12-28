@@ -8,12 +8,53 @@ void coffeeList()
 }
 
 void bestBuy();
-void orderCoffee();
+void orderCoffee(UserLogin *user);
 void viewUser();
 void clear();
 void totalEarning();
 void deleteCoffeeMenu();
 void createCoffeeItem(List *L1, string id, string name, string price);
+void staffPanel();
+
+void mainMenu(UserLogin *user) {
+    List *L1 = createEmptyList();
+    int choice;
+    mainMenu:
+        cout << "\n-------------------------------" << endl;
+        cout << setw(25) << "Welcome To The Cafe" << endl;
+        cout << "-------------------------------" << endl;
+        cout << "1. Buy Coffee" << endl;
+        cout << "2. Staff Mangament" << endl;
+        cout << "3. Back To Login Menu" << endl;
+        cout << "-------------------------------" << endl;
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if(choice == 1) {
+            clearScreen();
+            coffeeList();
+            cout << endl;
+            orderCoffee(user);
+            clearScreen();
+            goto mainMenu;
+        }
+        else if(choice == 2) {
+            clearScreen();
+            staffPanel();
+            clearScreen();
+            goto mainMenu;
+        }
+        else if(choice == 3) {
+            return;
+        }
+        else {
+            clearScreen();
+            cout << "Wrong Input Try Again!" << endl;
+            sleepTime(1000);
+            clearScreen();
+            goto mainMenu;
+        }
+}
 
 void staffPanel()
 {
@@ -110,7 +151,7 @@ void staffPanel()
         }
 }
 
-void orderCoffee()
+void orderCoffee(UserLogin *user)
 {
     int choice;
 
@@ -125,7 +166,7 @@ void orderCoffee()
         if (choice == 1)
         {
             UserList *U1 = readUserFile();
-            buyCoffee(U1);
+            buyCoffee(U1, user);
             writeUserFile(U1);
         }
         else if (choice == 2)
