@@ -128,7 +128,7 @@ void inputPass(string password) {
     #ifdef _WIN32
     password = getPassword();
     #else
-    password = getpass();
+    password = getpass("");
     #endif
 }
 
