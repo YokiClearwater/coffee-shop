@@ -101,6 +101,17 @@ LoginList *readLoginFile() {
     return L2; 
 }
 
+void displayUserLoginInfo() {
+    LoginList *LL = readLoginFile();
+
+    UserLogin *temp = LL->head;
+    while(temp != NULL) {
+        cout << temp->userName << endl;
+        temp = temp->next; 
+    }
+    cout << endl;
+}
+
 #ifdef _WIN32
 string getPassword()
 { 

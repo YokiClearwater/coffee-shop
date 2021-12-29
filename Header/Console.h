@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <thread>
+using namespace std;
 
 void clearScreen()
 {
@@ -15,5 +16,3 @@ void clearScreen()
 void sleepTime(int ms) {
     std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
-
-

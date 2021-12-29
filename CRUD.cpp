@@ -1,13 +1,10 @@
 #include <iostream>
-
 #ifdef _WIN32
 #include <conio.h>
 #endif
-
 #ifdef __unix__
 #include <unistd.h>
 #endif
-
 #include "Header/Console.h"
 #include "Header/CRUD.h"
 #include "Header/Login.h"
@@ -29,7 +26,13 @@ int main() {
         cout << "3. Exit" << endl;
         cout << "-------------------------------" << endl;
         cout << "Enter Choice: ";
-        cin >> choice;
+        while(!(cin >> choice)) {
+            cout << "Bad Entry!! Please Enter an Integer: ";
+            cin.clear();
+            while(cin.get() != '\n');
+        }
+
+
 
         if(choice == 1) {
             cout << "Login Menu:" << endl;

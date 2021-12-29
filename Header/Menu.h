@@ -74,7 +74,8 @@ void staffPanel()
         cout << "6. View Customer Purchase List" << endl;
         cout << "7. Total Earning" << endl;
         cout << "8. Delete All Coffee From Menu" << endl;
-        cout << "9. Back to Main Menu" << endl;
+        cout << "9. Registered Users List" << endl;
+        cout << "10. Back to Main Menu" << endl;
         cout << "---------------------------------" << endl;
         cout << "Input Choice: ";
         cin >> choice;
@@ -135,12 +136,37 @@ void staffPanel()
             goto adminPanel;
         }
         else if (choice == 8) {
-            clearScreen();
-            deleteCoffeeMenu();
-            clearScreen();
-            goto adminPanel;
+            // clearScreen();
+            cout << "This will delete all items in the coffee menu!!" << endl;
+            cout << "Are you sure? You want proceed? (Y/N): ";
+            char ch;
+            cin >> ch;
+
+            while(ch) {
+                if(ch == 'Y' || ch == 'y') {
+                    deleteCoffeeMenu();
+                    clearScreen();
+                    goto adminPanel;
+                }
+                else if(ch == 'N' || ch == 'n') {
+                    return;
+                }
+                else {
+                    cout << "Enter Again: ";
+                    cin.ignore(1024, '\n');
+                    cin >> ch;
+                }
+            }
         }
         else if (choice == 9) {
+            clearScreen();
+            cout << "Registered User: " << endl;
+            cout << "------------------------" << endl; 
+            displayUserLoginInfo();
+            sleepTime(3000);
+            goto adminPanel;
+        }
+        else if (choice == 10) {
             return;
         }
         else
